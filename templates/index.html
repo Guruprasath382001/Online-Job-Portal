@@ -1,0 +1,808 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <script src="static/js/jobapply.js"></script>
+    <script src="static/js/search.js"></script>
+<style>
+  /* body{
+    background-color: #ffffff;
+  } */
+
+  .jobcontent{
+    border: 2px solid gray;
+    border-radius: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+    background-color: aliceblue;
+  }
+  .insidecontent{
+    margin-top: -20px;
+    margin-right: -70px;
+    padding-right: 100px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .insidecontent button{
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 40px;
+    width: 150px;
+  }
+  footer{
+    background-color: #11d41e;
+    margin-top: 10px;
+    margin-bottom: -40px;
+  }
+
+  /* css for dark mode starts */
+
+body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .dark-mode {
+            background-color: #0d1021;
+            color: #ffffff;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 17px;
+            width: 15px;
+            left: 4px;
+            bottom: 4px;
+            background-color: #fff;
+            transition: 0.4s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+        }
+
+        input:focus+.slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+/* css for dark mode ends */
+
+  
+/* css for popup starts */
+
+        #popup-container {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color:orangered;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 2.0);
+            z-index: 1000;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        #popup-content {
+            margin-bottom: 20px;
+        }
+
+        #popup-close {
+            cursor: pointer;
+            color:black;
+            border: 2px solid rgb(87, 87, 228);
+            background-color: rgb(87, 87, 228);
+            
+        }
+/* css for popup ends */
+
+
+/* css for footer */
+footer{
+    position: relative;
+    background-color:lightblue;
+    color: black;
+    height: 250px;
+    padding: 20px;
+    margin-top:0px;
+    z-index: 1;
+}
+
+
+.footer .col h1{
+    margin-left: 30px;
+}
+
+.container6 .col ul li{
+    list-style-type:none;
+    font-weight: bold;
+}
+
+.footer .col .socials a{
+    letter-spacing: 30px;
+}
+
+.footer .row .logo h1{
+    font-size: 130px;
+    color: #00BFFF;
+    margin-top: 50px;
+    margin-left: 50px;
+    font-family: 'Rye', cursive;
+}
+
+.footer .col h1{
+    font-size: 30px;
+    color: #00Bfff;
+}
+.container6 p{
+    font-weight: bold;
+    color: black
+}
+.container6 p:hover{
+    color: #00BFFF;
+}
+.container6 a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+.container6 a:hover{
+    color: #00Bfff;
+}
+
+
+  
+</style>
+
+
+
+  </head>
+  <body onresize="myFunctionr()" >
+    <nav class="navbar navbar-expand-lg bg-dark ">
+        <div class="container-fluid">
+          <img src="static/images/logo.png" style="width: 50px;height: 50px;">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--              <li class="nav-item">-->
+<!--                <div>-->
+<!--                <a class="nav-link active "  aria-current="page" href="/" target="_self" style="margin-left: 20px; font-size:larger;color: #11d41e" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#12c70f}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>&nbsp;My Profile</a></div>-->
+<!--              </li>-->
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="/" style="font-size: larger;margin-left: 20px; color: #11d41e" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><style>svg{fill:#11d41e}</style><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>&nbsp;Home</a>
+              </li>
+<!--              <li class="nav-item">-->
+<!--                <a class="nav-link active " aria-current="page" href="/appliedJob" style="margin-left:20px;font-size: larger;color: #11d41e;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#18e109}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg>&nbsp;Applied Jobs</a>-->
+<!--              </li>-->
+
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="/about" style="margin-left:20px;font-size: larger;color: #11d41e;">&nbsp;About us</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="/admin" style="margin-left:20px;font-size: larger;color: #11d41e;">&nbsp;Admin Login</a>
+              </li>
+              
+                <div style="margin-left: 20px; margin-top: 8px;">
+                <label class="switch">
+                    <input type="checkbox" id="darkbtn">
+                    <span class="slider round"></span>
+                </label></div>
+                
+
+          <!-- js for black mode  -->
+            
+            <script>
+              const darkbtn = document.getElementById('darkbtn');
+              const body = document.body;
+      
+              const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+      
+              if (isDarkMode) {
+                  body.classList.add('dark-mode');
+                  darkbtn.checked = true;
+              }
+      
+              darkbtn.addEventListener('change', () => {
+                  if (darkbtn.checked) {
+                      body.classList.add('dark-mode');
+                      localStorage.setItem('darkMode', 'enabled');
+                  } else {
+                      body.classList.remove('dark-mode');
+                      localStorage.setItem('darkMode', 'disabled');
+                  }
+              });
+          </script>
+
+          <!-- js for dark mode -->
+            </ul>
+            <div class="d-flex" role="search" style="margin-right: 10px;">
+              <input class="form-control me-2" id="searchInput" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-warning btn-outline-success" style="width: 150PX;" onclick="redirectToSearchPage()"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button>
+              
+            </div>
+            <form action="/register" method="POST">
+            <button class="btn btn-warning btn-outline-success" type="submit">Sign Up</button></form>
+          </div>
+        </div>
+      </nav>
+
+    <script>
+        function redirectToSearchPage() {
+            const searchInput = document.getElementById('searchInput').value.trim();
+            window.location.href = `/searchResults?searchTerm=${searchInput}`;
+        }
+    </script>
+
+      
+
+<!-- pop up announcement start -->
+
+    <div id="popup-container">
+      <div id="popup-content">
+          <h3 style="color: black;" >Announcement:</h3><br>
+            <h4  style="color: black;">Vels university is conducting Mega Job Fair</h4><br>
+            <p  style="color: black;"> Location : PV Vaithiyalingam Rd, Velan Nagar, <br>&nbsp;&nbsp;Krishnapuram, Pallavaram,<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Chennai, Tamil Nadu 600117.<br><br>
+  Date & Timing : 10-dec-2023 (9am - 6pm) </p>
+      </div>
+      <div id="popup-close">Close</div>
+  </div>
+  
+  <script>
+      // Get the popup container and close button
+      var popupContainer = document.getElementById('popup-container');
+      var popupClose = document.getElementById('popup-close');
+  
+      // Show the popup when the page loads
+      window.onload = function () {
+          popupContainer.style.display = 'block';
+      };
+  
+      // Hide the popup when the close button is clicked
+      popupClose.onclick = function () {
+          popupContainer.style.display = 'none';
+      };
+  </script>
+
+<!-- pop up announcements ends -->
+
+<p id="demon"></p>
+
+    <div class="jobpage">
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle">Python developer </h1>
+        <h2 style="color: grey;" id="company">HCL Technologies</h2>
+        <h4 style="color: grey;" id="exp"> Experience required : Fresher</h4>
+        <h4 style="color: grey;" id="sal">Salary : 3L CTC</h4><br>
+        <h5 style="color: grey;" id="location"> Location : Chennai, Banglore, Hyderabad, Pune, Gurguon</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 30px;">
+          <h3 style="color: grey;" id="con">Conditions:</h3>
+          <h6 style="color: grey;" id="poin">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic python,HTML,CSS,SQL and good knowledge in Flask,Django.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+
+
+<script>
+  function applyForJob(jobTitle) {
+            // Save the selected job to localStorage
+            localStorage.setItem("selectedJob", jobTitle);
+            window.location.href = "profile.html";
+        }
+</script>
+
+          
+            <div style="margin-left: 450px; ">
+              <h5 style="color: grey;">Last Date to Apply: 20-dec-2023 </h5>
+            </div>
+          </div>
+
+      </div>
+
+
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle1">Java developer </h1>
+        <h2 style="color: grey;" id="company1">TATA Consultancy Services</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 3.4L CTC</h4><br>
+        <h5 style="color: grey;" id="location1"> Location : Chennai, Banglore, Coimbatore, Mumbai, Gurguon</h5>
+        </div>
+        <div class="insidecontent">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic Java,HTML,CSS,SQL and good knowledge in Springboot,Hibernate.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 25-dec-2023 </h5>
+            </div>
+          </div>
+      </div>
+    
+
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle2">Embeded developer </h1>
+        <h2 style="color: grey;" id="company2">IBM India</h2>
+        <h4 style="color: grey;"> Experience required : 0 - 2</h4>
+        <h4 style="color: grey;">Salary : 5L CTC</h4><br>
+        <h5 style="color: grey;" id="location2"> Location : Chennai, Banglore, pune, Mumbai, Gurguon,Delhi</h5>
+        </div>
+        <div class="insidecontent">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic Java,HTML,CSS,SQL and good knowledge in Springboot,Hibernate.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 01-feb-2024 </h5>
+            </div>
+          </div>
+      </div>
+
+
+      
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle3">ASP.net developer </h1>
+        <h2 style="color: grey;" id="company3">Syncfusion Software Solutions</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 4L CTC</h4><br>
+        <h5 style="color: grey;" id="location3"> Location : Anna nagar,Chennai</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 100px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic asp.net and c#.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 15-jan-2024 </h5>
+            </div>
+          </div>
+      </div>
+
+
+      
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle4">ReactJS developer </h1>
+        <h2 style="color: grey;" id="company4">Siva Prasad & Co Technologies </h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 1.4L CTC</h4><br>
+        <h5 style="color: grey;" id="location4"> Location : Chennai, Mayiladudurai</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 100px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic HTML,CSS,Javascript and good knowledge in ReactJS.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 31-Dec-2023 </h5>
+            </div>
+          </div>
+      </div>
+
+      
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle5">Python developer </h1>
+        <h2 style="color: grey;" id="company5">Shiash info Solutions Pvt Ltd</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 2.7L CTC</h4><br>
+        <h5 style="color: grey;" id="location5"> Location : Ashok nagar,Chennai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 140px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic Python,HTML,CSS,SQL and good knowledge in Django,Pyramid.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+      
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 12-jan-2024 </h5>
+            </div>
+          </div>
+      </div>
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle6">Data Science Engineer </h1>
+        <h2 style="color: grey;" id="company6">Amazon India</h2>
+        <h4 style="color: grey;"> Experience required : anyone can apply</h4>
+        <h4 style="color: grey;">Salary : 22L CTC</h4><br>
+        <h5 style="color: grey;" id="location6"> Location : New delhi,Mumbai,Chennai,Banglore.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 130px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic Python and good knowledge in Data science.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)Should have Passport
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 14-feb-2024 </h5>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle7">Junior Network Engineer</h1>
+        <h2 style="color: grey;" id="company7">FIS Global</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 3.5L CTC</h4><br>
+        <h5 style="color: grey;" id="location7"> Location : Banglore,Chennai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 120px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in basic Networking.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 22-dec-2023 </h5>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle8">Full Stack Developer </h1>
+        <h2 style="color: grey;" id="company8">Codoid Innovations Pvt Ltd</h2>
+        <h4 style="color: grey;"> Experience required : 0 - 5 years</h4>
+        <h4 style="color: grey;">Salary : 8.5L CTC</h4><br>
+        <h5 style="color: grey;" id="location8"> Location : Hyderabad,pune,Banglore,Chennai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 150px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in Full stack development<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 29-dec-2023 </h5>
+            </div>
+          </div>
+      </div>
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle9">Digital Marketing</h1>
+        <h2 style="color: grey;" id="company9">Google India</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 7.5L CTC</h4><br>
+        <h5 style="color: grey;" id="location9"> Location : Mumbai,Hyderabad,Banglore,Chennai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 120px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in Digital Marketing.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onsubmit="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 10-mar-2024 </h5>
+            </div>
+          </div>
+      </div>
+
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle10">Data Entry</h1>
+        <h2 style="color: grey;" id="company10">Bala Technologies</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 1.5L CTC</h4><br>
+        <h5 style="color: grey;" id="location10"> Location : Banglore,Chennai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 120px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge in Data entry.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 12-dec-2023 </h5>
+            </div>
+          </div>
+      </div>
+
+      <div class="jobcontent">
+        <div class="insidecontent">
+        <h1 style="color: black;" id="jobTitle11">Blockhain Developer</h1>
+        <h2 style="color: grey;" id="company11">BLOCK Technologies</h2>
+        <h4 style="color: grey;"> Experience required : Fresher</h4>
+        <h4 style="color: grey;">Salary : 5.5L CTC</h4><br>
+        <h5 style="color: grey;" id="location11"> Location : Banglore,Chennai,Mumbai.</h5>
+        </div>
+        <div class="insidecontent" style="margin-left: 120px;">
+          <h3 style="color: grey;">Conditions:</h3>
+          <h6 style="color: grey;">
+            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+            2)Bachelor's degree cgpa must be above 6.5.<br>
+            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+            4)Should have strong knowledge blockchain,etherium,solidity.<br>
+            5)Should be able to do night shift.<br>
+            6)Should be ready to relocate.<br>
+            7)2023 passedouts only apply<br>
+            
+          </h6>
+          
+          <!-- <form action="applied jobs.html" method="post"> -->
+            <button class="btn btn-warning btn-outline-success" onclick="logalert()">Apply</button>
+          <!-- </form> -->
+
+          
+           
+            <div style="margin-left: 400px; ">
+            <h5 style="color: grey;">Last Date to Apply: 02-feb-2023 </h5>
+            </div>
+          </div>
+      </div>
+
+
+    </div>
+
+
+
+    <!-- telegram starts -->
+    <div class="container10" style="margin-bottom: 50px">
+      <section id="telegram">
+        <div class="container">
+          <div class="telegram">
+            <a href="https://t.me/thisis_GP_offl" target="_blank" style="color: rgb(35, 179, 236); font-size: 60px; position: fixed ; bottom: 5px; right: 5px;  z-index: 2;"><svg xmlns="http://www.w3.org/2000/svg" height="100" width="100" viewBox="0 0 496 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#2a9fc6" d="M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg></a>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- telegram ends -->
+    
+<!-- Footer starts -->
+
+    <footer id="Place">
+      <div class="container6">
+        <div class="footer">
+          <div class="row">
+            <div class="col">
+              <div class="logo">
+              <h1 style="margin-top:-20px;"><img src="static\images\logo.png" alt="logo" width="150px" height="150px"></h1>
+              </div>
+            </div>
+            <div class="col">
+              <h1>HEAD OFFICE</h1>
+              <ul>
+              <li>9PV4+4CC,Annamalai University,</li>
+              <li>Annamalai Nagar,</li>
+              <li>Chidambaram,</li>
+              <li>Tamil nadu, 608002.</li>
+            </ul>
+            </div>
+            <div class="col">
+              <h1>LINKS</h1>
+              <div style="margin-left: 35px;">
+              <a href="#">Home</a><br />
+              <a href="about.html">About Us</a><br />
+              <a href="profile.html">My Profile</a><br />
+              <a href="appliedJob.html">Our Team</a><br />
+              </div>
+              
+            </div>
+            <div class="col">
+              <h1>CONTACT</h1>
+              <div style="margin-left: 35px;">
+              <p>Jobify@gmail.com</p>
+              <p>+91-9876543210</p></div>
+              <hr>
+              <div class="socials" style="margin-left: 20px;">
+                <a href="https://www.facebook.com/rajini.guru.77">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512" style="margin-left: 10px;"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#2662c9" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg></a>
+
+
+                <a href="https://www.instagram.com" style="margin-left: 10px;"><svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#f21ccb" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a>
+               
+
+                <a href="https://twitter.com/thisis_GP_offl" style="margin-left: 10px;"><svg xmlns="http://www.w3.org/2000/svg" height="40" width="40" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#00050a" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    </footer>
+ 
+<!-- footer ends -->
+ 
+  </body>
+  
+</html>

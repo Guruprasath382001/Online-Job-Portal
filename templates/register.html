@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>register</title>
+    <style>
+    body {
+      height: 100vh;
+      background: rgb(203, 121, 121);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    input {
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      height: 30px;
+    }
+
+    button {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background: rgb(34, 32, 32);
+      color: white;
+      animation: shake 0.5s ease-in-out;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-group {
+      margin: 10px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .card {
+      position: absolute;
+      box-shadow: 8px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 500px;
+      background: white;
+      border-radius: 15px;
+    }
+
+<!--    .login {-->
+<!--      z-index: 2;-->
+<!--      transform: rotate(-5deg);-->
+<!--    }-->
+
+<!--    .signup {-->
+<!--      z-index: 1;-->
+<!--      transform: rotate(5deg);-->
+    }
+
+    .switchText {
+      color: blue;
+      text-decoration: underline;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+<!--    @keyframes toRightLogin {-->
+<!--      0% {-->
+<!--        transform: translateX(0px) rotate(5deg);-->
+<!--      }-->
+<!--      100% {-->
+<!--        transform: translateX(500px) rotate(5deg);-->
+<!--      }-->
+<!--    }-->
+
+<!--    @keyframes toRightSignup {-->
+<!--      0% {-->
+<!--        transform: translateX(0px) rotate(-5deg);-->
+<!--      }-->
+<!--      100% {-->
+<!--        transform: translateX(500px) rotate(-5deg);-->
+<!--      }-->
+<!--    }-->
+
+<!--    @keyframes toPosition {-->
+<!--      0% {-->
+<!--        transform: translateX(500px) rotate(5deg);-->
+<!--      }-->
+<!--      100% {-->
+<!--        transform: translateX(0px) rotate(5deg);-->
+<!--      }-->
+<!--    }-->
+
+<!--    @keyframes toPositionSignup {-->
+<!--      0% {-->
+<!--        transform: translateX(500px) rotate(-5deg);-->
+<!--      }-->
+<!--      100% {-->
+<!--        transform: translateX(0px) rotate(-5deg);-->
+<!--      }-->
+<!--    }-->
+    #message {
+  display:none;
+  background: #f1f1f1;
+  color: #000;
+  position: relative;
+  padding: 20px;
+  margin-top: 10px;
+}
+
+#message p {
+  padding: 10px 35px;
+  font-size: 18px;
+}
+  </style>
+
+</head>
+<body>
+<div class="card signup" id="signup">
+    {{msg}} <!--first it shows bad request.after entering details and click create it shows "registered"-->
+    <h2><i class="fas fa-user"></i> New account</h2>
+    <form action="/register" method="POST" onsubmit="validatePassword(event)">
+      <div class="form-group">
+        <div>
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="text" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div style="margin-right: 70px;">
+        <label for="phno">Phone number:</label>
+        <input name="phno" id="phno" type="tel" maxlength="10" minlength="10" pattern="[6-9]\d{9}" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div style="margin-right: 40px;">
+        <label for="uname">Username:</label>
+        <input name="uname" id="uname" type="text" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+        <label for="password">Password:</label>
+        <input name="password" id="password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+
+        </div>
+      </div>
+
+      <button type="submit">Create</button>
+
+    </form>
+    <p class="link-signUp">
+      Already have an account?
+     <a href="/login">Sign In</a>
+    </p>
+  </div>
+
+
+</body>
+</html>

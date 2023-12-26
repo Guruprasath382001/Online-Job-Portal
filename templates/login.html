@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      height: 100vh;
+      background: rgb(203, 121, 121);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+
+    input {
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      height: 30px;
+    }
+
+    button {
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 5px;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background: rgb(34, 32, 32);
+      color: white;
+      animation: shake 0.5s ease-in-out;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .form-group {
+      margin: 10px;
+      display: flex;
+      flex-direction: row;
+    }
+
+    .card {
+      position: absolute;
+      box-shadow: 8px 4px 8px 0 rgba(0, 0, 0, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 400px;
+      height: 500px;
+      background: white;
+      border-radius: 15px;
+    }
+
+<!--    .login {-->
+<!--      z-index: 2;-->
+<!--      transform: rotate(-5deg);-->
+<!--    }-->
+
+<!--    .signup {-->
+<!--      z-index: 1;-->
+<!--      transform: rotate(5deg);-->
+<!--    }-->
+
+    .switchText {
+      color: blue;
+      text-decoration: underline;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    @keyframes toRightLogin {
+      0% {
+        transform: translateX(0px) rotate(5deg);
+      }
+      100% {
+        transform: translateX(500px) rotate(5deg);
+      }
+    }
+
+    @keyframes toRightSignup {
+      0% {
+        transform: translateX(0px) rotate(-5deg);
+      }
+      100% {
+        transform: translateX(500px) rotate(-5deg);
+      }
+    }
+
+    @keyframes toPosition {
+      0% {
+        transform: translateX(500px) rotate(5deg);
+      }
+      100% {
+        transform: translateX(0px) rotate(5deg);
+      }
+    }
+
+    @keyframes toPositionSignup {
+      0% {
+        transform: translateX(500px) rotate(-5deg);
+      }
+      100% {
+        transform: translateX(0px) rotate(-5deg);
+      }
+    }
+  </style>
+  
+</head>
+<body>
+  <div class="card login" id="login">
+    <h2><i class="fa fa-key"></i> Sign In</h2>
+    {{ msg }}
+    <form action="/login1" method="post">
+      <div class="form-group">
+        <div>
+        <label for="email">Email:</label>
+        <input name="email" id="email" type="text" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div>
+        <label for="password">Password:</label>
+        <input name="password" id="password" type="password" required>
+<!--        <input name="check" id="loginCheck" type="checkbox" style="margin-left: 10px;" onclick="togglePassword('loginPass','loginCheck')">-->
+        </div>
+      </div>
+      
+      <button type="submit">Sign In</button><br>
+
+    </form>
+    <a href="/forgot">Forgot Password</a>
+
+  </div>
+<!--  <div class="card signup" id="signup">-->
+<!--    <h2><i class="fas fa-user"></i> New account</h2>-->
+<!--    <form action="/login" method="POST">-->
+<!--      <div class="form-group">-->
+<!--        <div>-->
+<!--        <label for="email">Email:</label>-->
+<!--        <input name="email" id="email" type="text" required>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="form-group">-->
+<!--        <div style="margin-right: 70px;">-->
+<!--        <label for="phno">Phone number:</label>-->
+<!--        <input name="phno" id="phno" type="tel" maxlength="10" minlength="10" required>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="form-group">-->
+<!--        <div style="margin-right: 40px;">-->
+<!--        <label for="uname">Username:</label>-->
+<!--        <input name="uname" id="uname" type="text" required>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="form-group">-->
+<!--        <div>-->
+<!--        <label for="password">Password:</label>-->
+<!--        <input name="password" id="password" type="password" required>-->
+<!--&lt;!&ndash;        <input name="check" id="signupCheck" type="checkbox" style="margin-left: 10px;" onclick="togglePassword('signupPass', 'signupCheck')">&ndash;&gt;-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      -->
+<!--      &lt;!&ndash; <div class="form-group">-->
+<!--        <div>-->
+<!--          <label for="password-repeat">Retype Password:</label>-->
+<!--        <input name="password-repeat" id="repeatPass" type="password" >-->
+<!--        <input name="check" id="repeatCheck" type="checkbox" style="margin-left: 10px;" onclick="togglePassword('repeatPass', 'repeatCheck')">-->
+<!--        </div>-->
+<!--      </div> &ndash;&gt;-->
+<!--      <button type="submit">Create</button>-->
+
+<!--    </form>-->
+<!--    <p class="link-signUp">-->
+<!--      Already have an account?-->
+<!--      <span class="switchText" onclick="switchToLogin()"> Sign in!</span>-->
+<!--    </p>-->
+<!--  </div>-->
+  <script>
+     function togglePassword(passId, checkId) {
+      const pass = document.getElementById(passId);
+      const check = document.getElementById(checkId);
+
+      if (check.checked) {
+        pass.type = "text";
+      } else {
+        pass.type = "password";
+      }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const signup = document.getElementById("signup");
+      const login = document.getElementById("login");
+
+      switchToSignup = () => {
+        login.style.transform = "rotate(-5deg)";
+        login.style.animationName = "toRightSignup";
+        login.style.animationDuration = "1s";
+        setTimeout(() => {
+          login.style.zIndex = "1";
+          signup.style.zIndex = "2";
+          login.style.animationName = "toPositionSignup";
+          login.style.animationDuration = "1s";
+        }, 900);
+      };
+
+      switchToLogin = () => {
+        signup.style.animationName = "toRightLogin";
+        signup.style.animationDuration = "1s";
+        setTimeout(() => {
+          signup.style.zIndex = "1";
+          login.style.zIndex = "2";
+          signup.style.animationName = "toPosition";
+          signup.style.animationDuration = "1s";
+        }, 900);
+      };
+    });
+  </script>
+</body>
+</html>

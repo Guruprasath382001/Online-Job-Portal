@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <style>
+        body{
+        background-image: url('static/images/search.webp');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        }
+        .jobcontent{
+          border: 2px solid gray;
+          border-radius: 50px;
+          margin-left: 50px;
+          margin-right: 100px;
+          margin-top: 10px;
+          padding: 30px;
+          display: flex;
+          flex-direction: row;
+          background-color: aliceblue;
+        }
+        .insidecontent{
+          margin-top: -20px;
+          margin-right: -10px;
+          padding-right: 100px;
+          font-family: 'Times New Roman', Times, serif;
+          font-size:18px;
+        }
+        .insidecontent button{
+          margin-top: 50px;
+          padding: 20px;
+          border-radius: 40px;
+          width: 150px;
+        }
+        button{
+        background-color:orange
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Search Results</h1>
+
+    <ul id="resultList"></ul>
+
+    <script>
+        const items = [
+            { id: 1, name: 'Python developer', description: 'HCL Technologies',exp:'Fresher',conditions:'Python,HTML,CSS,SQL,Flask,Django',salary:'3L CTC',location:'Chennai, Banglore, Hyderabad, Pune, Gurguon',date:'20-dec-2023'},
+            { id: 2, name: 'Java developer', description: 'TATA Consultancy Services' ,exp:'Fresher',conditions:'Java,Springboot,Hibernate',salary:'3.4L CTC',location:'Chennai, Banglore, Coimbatore, Mumbai, Gurguon',date:'25-dec-2023'},
+            { id: 3, name: 'Embedded Developer', description: 'IBM India' ,exp:'0-2 years',conditions:'IOT,Electronics,Sensor',salary:'5L CTC',location:'Chennai, Banglore, pune, Mumbai, Gurguon,Delhi',date:'01-feb-2024'},
+            { id: 4, name: 'ASP.net Developer', description: 'Syncfusion Software Solutions',exp:'Fresher' ,conditions:'ASP.net,C#,Game development',salary:'4L CTC',location:'Anna nagar,Chennai',date:'15-jan-2024'},
+            { id: 5, name: 'React JS Developer', description: 'Sivaprasad & Co Technologies' ,exp:'Fresher',conditions:'HTML,CSS,Javascript,React JS',salary:'1.4L CTC',location:'Chennai, Mayiladudurai',date:'31-Dec-2023'},
+            { id: 6, name: 'Python Developer', description: 'Shiash info Solutions Pvt Ltd' ,exp:'Fresher',conditions:'Python,HTML,CSS,SQL,Flask,Django',salary:'2.7L CTC',location:'Ashok nagar,Chennai',date:'12-jan-2024'},
+            { id: 7, name: 'Data Science Engineer', description: 'Amazon India' ,exp:'Anyone can Apply',conditions:'basic Python and good knowledge in Data science',salary:'22L CTC',location:' New delhi,Mumbai,Chennai,Banglore',date:'14-feb-2024'},
+            { id: 8, name: 'Junior Network Engineer', description: 'FIS Global' ,exp:'Fresher',conditions:'Basic networking',salary:'3.5L CTC',location:'Banglore,Chennai',date:'22-dec-2023'},
+            { id: 9, name: 'Full Stack Developer', description: 'Codoid Innovations Pvt Ltd', exp:'0 - 5 years',conditions:'Full Stack Web development',salary:'8.5L CTC',location:'Hyderabad,pune,Banglore,Chennai',date:'29-dec-2023'},
+            { id: 10, name: 'Digital Marketing', description: 'Google India', exp:'Fresher',conditions:'Digital Marketing' ,salary:'7.5L CTC',location:' Mumbai,Hyderabad,Banglore,Chennai',date:'10-mar-2024'},
+            { id: 11, name: 'Data Entry', description: 'Bala Technologies', exp:'Fresher',conditions:'Data Entry',salary:'1.5L CTC',location:'Banglore,Chennai',date:' 12-dec-2023'},
+            { id: 12, name: 'Blockchain developer', description: 'Block Technologies' ,exp:'Fresher',conditions:'Blockchain,Etherium,Solidity',salary:'5.5L CTC',location:'Banglore,Chennai,Mumbai',date:'02-feb-2023'},
+        ];
+
+        function renderResults(results) {
+            const resultList = document.getElementById('resultList');
+            resultList.innerHTML = '';
+
+            if (results.length === 0) {
+                resultList.innerHTML = '<p>No results found.</p>';
+                return;
+            }
+
+            results.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `
+                    <div class="jobcontent">
+            <div class="insidecontent">
+            <h1 style="color: black;" id="jobTitle1">${item.name}</h1>
+            <h2 style="color: grey;" id="company1">${item.description}</h2>
+            <h4 style="color: grey;"> Experience required :${item.exp}</h4>
+            <h4 style="color: grey;">Salary : ${item.salary}</h4><br>
+            <h5 style="color: grey;" id="location1"> Location :${item.location}</h5>
+            </div>
+            <div class="insidecontent">
+              <h3 style="color: grey;">Conditions:</h3>
+              <h6 style="color: grey;">
+                1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>
+                2)Bachelor's degree cgpa must be above 6.5.<br>
+                3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>
+                4)Should have strong knowledge in basic ${item.conditions}. <br>
+                5)Should be able to do night shift.<br>
+                6)Should be ready to relocate.<br>
+                7)2023 passedouts only apply<br>
+
+              </h6>
+
+              <form id="applyForm">
+                <button id="applyButton" class="btn btn-warning btn-outline-success">Apply</button>
+              </form>
+              <div style="margin-left: 450px; ">
+              <h5 style="color: grey;">Last Date to Apply:${item.date} </h5>
+            </div>
+            </div>
+            </div>
+                `;
+                resultList.appendChild(listItem);
+            });
+        }
+
+        // Retrieve search term from the URL query parameters
+        const urlSearchParams = new URLSearchParams(window.location.search);
+        const searchTerm = urlSearchParams.get('searchTerm');
+
+        // Filter items based on the search term
+        const filteredItems = items.filter(item =>
+            item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.description.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+        // Display search results
+        renderResults(filteredItems);
+    </script>
+
+</body>
+</html>

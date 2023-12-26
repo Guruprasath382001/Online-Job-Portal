@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applied Jobs</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!--<style>-->
+<!--  .jobcontent{-->
+<!--    border: 2px solid gray;-->
+<!--    border-radius: 50px;-->
+<!--    margin-left: 50px;-->
+<!--    margin-right: 50px;-->
+<!--    margin-top: 10px;-->
+<!--    padding: 30px;-->
+<!--    display: flex;-->
+<!--    flex-direction: row;-->
+<!--    background-color: aliceblue;-->
+<!--  }-->
+<!--  .insidecontent{-->
+<!--    margin-top: -20px;-->
+<!--    margin-right: -70px;-->
+<!--    padding-right: 100px;-->
+<!--    font-family: 'Times New Roman', Times, serif;-->
+<!--  }-->
+<!--  .insidecontent button{-->
+<!--    margin-top: 50px;-->
+<!--    padding: 20px;-->
+<!--    border-radius: 40px;-->
+<!--    width: 150px;-->
+<!--    background-color: orange;-->
+<!--  }-->
+<!--  footer{-->
+<!--    background-color: #11d41e;-->
+<!--    margin-top: 10px;-->
+<!--    margin-bottom: -40px;-->
+<!--  }-->
+
+
+
+    <style type="text/css">
+        table,tr,td,th
+        {
+            border:1px solid black;
+            border-collapse:collapse;
+            text-align:center;
+        }
+        table
+        {
+            width:95%;
+            margin:10px;
+        }
+
+
+</style>
+
+
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <img src="static/images/logo.png" style="width: 50px;height: 50px;">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<!--              <li class="nav-item">-->
+<!--                <div>-->
+<!--                <a class="nav-link active "  aria-current="page" href="/profile" target="_self" style="margin-left: 20px; font-size:larger;color: #11d41e" ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><style>svg{fill:#12c70f}</style><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>&nbsp;My Profile</a>-->
+<!--                -->
+<!--              </li>-->
+              <li class="nav-item">
+                
+                <a class="nav-link active" aria-current="page" href="/" style="font-size: larger;margin-left: 20px; color: #11d41e "><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512"><style>svg{fill:#11d41e}</style><path d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/></svg>&nbsp;Home</a>
+                
+              </li>
+              <li class="nav-item">
+                
+                <a class="nav-link active " aria-current="page" href="/appliedJob" style="margin-left:20px;font-size: larger;color: #11d41e;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#18e109}</style><path d="M40 48C26.7 48 16 58.7 16 72v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V72c0-13.3-10.7-24-24-24H40zM192 64c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H192zM16 232v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V232c0-13.3-10.7-24-24-24H40c-13.3 0-24 10.7-24 24zM40 368c-13.3 0-24 10.7-24 24v48c0 13.3 10.7 24 24 24H88c13.3 0 24-10.7 24-24V392c0-13.3-10.7-24-24-24H40z"/></svg>&nbsp;Applied Jobs</a>
+                
+              </li>
+              <!-- <li class="nav-item">
+                
+                <a class="nav-link active " aria-current="page" href="post a job.html" style="margin-left:20px;font-size: larger;color: #11d41e;"><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#57fb4b}</style><path d="M480 32c0-12.9-7.8-24.6-19.8-29.6s-25.7-2.2-34.9 6.9L381.7 53c-48 48-113.1 75-181 75H192 160 64c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64l0 128c0 17.7 14.3 32 32 32h64c17.7 0 32-14.3 32-32V352l8.7 0c67.9 0 133 27 181 75l43.6 43.6c9.2 9.2 22.9 11.9 34.9 6.9s19.8-16.6 19.8-29.6V300.4c18.6-8.8 32-32.5 32-60.4s-13.4-51.6-32-60.4V32zm-64 76.7V240 371.3C357.2 317.8 280.5 288 200.7 288H192V192h8.7c79.8 0 156.5-29.8 215.3-83.3z"/></svg>&nbsp;Post a Job</a>
+                
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link active " aria-current="page" href="/about" style="margin-left:20px;font-size: larger;color: #11d41e;">&nbsp;About us</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" style="margin-right: 10px;">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-warning btn-outline-success" style="width: 150PX;" type="submit"><i class="fa fa-search" aria-hidden="true"></i>&nbsp;Search</button>
+            </form>
+<!--            <form action="/login" method="post">-->
+<!--            <button class="btn btn-warning btn-outline-success" type="submit">Sign In</button></form>-->
+          </div>
+        </div>
+      </nav>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+
+
+    <h1 style="margin-left: 600px; margin-top: 10px; font-family: 'Times New Roman', Times, serif;"><b>Applied Jobs</b></h1>
+
+
+
+    
+<!--    <ul id="applied-jobs">-->
+<!--        &lt;!&ndash; Applied job details will be displayed here &ndash;&gt;-->
+<!--    </ul>-->
+
+
+
+
+
+
+
+
+
+
+
+<!--    <script>-->
+<!--        // Retrieve applied jobs from localStorage-->
+<!--        const appliedJob = JSON.parse(localStorage.getItem('appliedJob')) || [];-->
+
+<!--        // Display applied job details on the page-->
+<!--        const appliedJobList = document.getElementById('applied-jobs');-->
+<!--        appliedJob.forEach((job, index) => {-->
+<!--            const listItem = document.createElement('li');-->
+<!--            -->
+<!--            listItem.innerHTML = `<div class="jobcontent">-->
+<!--        <div class="insidecontent">-->
+<!--        <h1 style="color: black;" id="jobTitle1">${job.title}</h1>-->
+<!--        <h2 style="color: grey;" id="company1">${job.company}</h2>-->
+<!--        <h4 style="color: grey;"> Experience required : Fresher</h4>-->
+<!--        <h4 style="color: grey;">Salary : 3.4L CTC</h4><br>-->
+<!--        <h5 style="color: grey;" id="location1">${job.location}</h5>-->
+<!--        </div>-->
+<!--        <div class="insidecontent">-->
+<!--          <h3 style="color: grey;">Conditions:</h3>-->
+<!--          <h6 style="color: grey;">-->
+<!--            1)SSLC (10th) and HSC (12th) percentages should be above 60%.<br>-->
+<!--            2)Bachelor's degree cgpa must be above 6.5.<br>-->
+<!--            3)Bachelor's degree in Computer Science, Software Engineering, or a related field.<br>-->
+<!--            4)Should have strong knowledge in basic Java,HTML,CSS,SQL and good knowledge in Springboot,Hibernate.<br>-->
+<!--            5)Should be able to do night shift.<br>-->
+<!--            6)Should be ready to relocate.<br>-->
+<!--            7)2023 passedouts only apply<br>-->
+<!--            -->
+<!--                                  <button onclick="deleteJob(${index})">Delete</button>`;-->
+<!--            appliedJobList.appendChild(listItem);-->
+<!--        });-->
+
+<!--        function deleteJob(index) {-->
+<!--            // Retrieve applied jobs from localStorage-->
+<!--            const appliedJob = JSON.parse(localStorage.getItem('appliedJob')) || [];-->
+
+<!--            // Remove the selected job from the array-->
+<!--            const deletedJob = appliedJob.splice(index, 1)[0];-->
+
+<!--            // Save the updated applied jobs back to localStorage-->
+<!--            localStorage.setItem('appliedJob', JSON.stringify(appliedJob));-->
+
+<!--            // Alert the user that the job has been deleted (you can customize this part)-->
+<!--            alert(`Job "${deletedJob.title}" at ${deletedJob.company}, ${deletedJob.location} has been deleted.`);-->
+<!--            -->
+<!--            // Refresh the page to reflect the changes-->
+<!--            location.reload();-->
+<!--        }-->
+<!--    </script>-->
+
+<table>
+    <tr>
+
+        <th>Name</th>
+        <th>Email</th>
+        <th>PhNo</th>
+        <th>SSLC</th>
+        <th>HSC</th>
+        <th>CGPA</th>
+        <th>School</th>
+        <th>College</th>
+        <th>Gender</th>
+        <th>Skills</th>
+        <th>Address</th>
+        <th> ID </th>
+        <th> Applied ID</th>
+    </tr>
+    {% for row in data %}
+<tr>
+    <td>{{row[0]}}</td>
+    <td>{{row[1]}}</td>
+    <td>{{row[2]}}</td>
+    <td>{{row[3]}}</td>
+    <td>{{row[4]}}</td>
+    <td>{{row[5]}}</td>
+    <td>{{row[6]}}</td>
+    <td>{{row[7]}}</td>
+    <td>{{row[8]}}</td>
+    <td>{{row[9]}}</td>
+    <td>{{row[10]}}</td>
+    <td>{{row[11]}}</td>
+    <td>{{row[12]}}</td>
+</tr>
+    {% endfor %}
+</table>
+
+
+</body>
+</html>
+
